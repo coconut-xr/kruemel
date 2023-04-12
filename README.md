@@ -5,22 +5,25 @@
 [![Twitter](https://img.shields.io/twitter/follow/coconut_xr?style=flat-square)](https://twitter.com/coconut_xr)
 [![Discord](https://img.shields.io/discord/1087727032240185424?style=flat-square&label=discord)](https://discord.gg/RbyaXJJaJM)
 
-![header image](./images/kruemel-header.jpg)
+## [Example](https://codesandbox.io/s/kruemel-demo-nk6idg?file=/src/app.tsx)
 
 ## TODO
 
-- [ ] Button
-- [ ] Checkbox
-- [ ] Toggle
-- [ ] Dropdown
-- [ ] Range
+- [ ] Fix clipping
+- [ ] proper sizing based on precision
+- [ ] better styles
+- [ ] themes
+- [x] Button
+- [x] Checkbox
+- [x] Toggle
+- [x] Dropdown
+- [x] Range
 - [ ] Progress
 - [ ] Table
 - [ ] Tooltip
-- [ ] Radio
-- [ ] Select
-- [ ] Tabs
----------------
+- [x] Radio
+- [x] Select
+- [x] Tabs
 - [ ] Modal
 - [ ] Drawer
 - [ ] Pagaination

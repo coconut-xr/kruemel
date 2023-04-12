@@ -22,9 +22,9 @@ export function Tab({
       <Text horizontalAlign="center" opacity={active ? 1 : 0.5} padding={0.02} {...props}>
         {children}
       </Text>
-      <Container height={0.02} backgroundColor={tabColor ?? "black"} backgroundOpacity={0.3}>
+      <Container height={0.015} backgroundColor={tabColor ?? "black"} backgroundOpacity={0.3}>
         {active && (
-          <Container id={`${node.id}-tab`} height={0.02} backgroundColor={tabColor ?? "black"} />
+          <Container id={`${node.id}-tab`} height={0.015} backgroundColor={tabColor ?? "black"} />
         )}
       </Container>
     </Container>

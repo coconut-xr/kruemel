@@ -2,7 +2,7 @@ import { Container } from "@coconut-xr/koestlich";
 import React, { ComponentProps } from "react";
 import { ColorRepresentation } from "three";
 
-export function Checkbox({
+export function Radio({
   color = "white",
   checked,
   ...rest
@@ -16,13 +16,13 @@ export function Checkbox({
       width={0.06}
       alignItems="center"
       justifyContent="center"
-      borderRadius={0.01}
+      borderRadius={0.03}
       backgroundColor="black"
       {...rest}
     >
       <Container
         padding={checked ? 0.015 : 0}
-        borderRadius={0.01}
+        borderRadius={0.015}
         backgroundColor={color}
       ></Container>
     </Container>

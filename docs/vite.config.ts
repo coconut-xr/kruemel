@@ -5,6 +5,12 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    dedupe: ["three"]
-  }
+    dedupe: ["three"],
+  },
+  server: {
+    fs: {
+      allow: [".."],
+    },
+  },
+  base: "/kruemel",
 });
