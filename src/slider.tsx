@@ -17,7 +17,8 @@ export function Slider({
 }) {
   const onPointerMove = useCallback(
     (e: ExtendedThreeEvent<PointerEvent>) => {
-      if (e.uv != null && e.nativeEvent.buttons === 1) {
+      if (e.uv != null && (e.nativeEvent.buttons === 1 || e.nativeEvent.buttons === undefined)) {
+        //e.nativeEvent.buttons === undefined for ReactNative
         const value = e.uv.x * range;
         startTransition(() => onChange(value));
         e.stopPropagation();
