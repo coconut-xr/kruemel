@@ -21,8 +21,9 @@ import {
   StepTitles,
   StepTitle,
   StepConnection,
+  Progess,
 } from "@coconut-xr/kruemel";
-import { Plus, Play, Pause, Trash, MagnifyingGlass } from "@coconut-xr/kruemel/icons/solid";
+import { Plus, Play, Pause, Trash, MagnifyingGlass, Bars3 } from "@coconut-xr/kruemel/icons/solid";
 import { Canvas } from "@react-three/fiber";
 import { Fullscreen } from "./fullscreen.js";
 import { useState } from "react";
@@ -199,6 +200,45 @@ export default function Index() {
             <Trash />
             <MagnifyingGlass />
           </Container>
+
+          <Text fontSize={0.2} marginTop={0.1}>
+            Pagination
+          </Text>
+          <Container flexDirection="row">
+            <Button>1</Button>
+            <Button backgroundColor="gray">2</Button>
+            <Button backgroundColor="gray">3</Button>
+            <Button backgroundColor="gray">4</Button>
+          </Container>
+
+          <Text fontSize={0.2} marginTop={0.1}>
+            Navbar
+          </Text>
+
+          <Container
+            width="100%"
+            maxWidth={4}
+            backgroundColor="black"
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+            paddingY={0.06}
+            paddingX={0.1}
+            gapColumn={0.1}
+          >
+            <Bars3 height={0.05} color="white" />
+            <Text color="white" fontSize={0.1}>
+              COCONUT-XR
+            </Text>
+            <Container flexGrow={1} />
+            <MagnifyingGlass color="white" />
+            <Plus color="white" />
+          </Container>
+
+          <Text fontSize={0.2} marginTop={0.1}>
+            Progress
+          </Text>
+          <Progess value={0.5} />
         </Container>
       </Fullscreen>
     </Canvas>

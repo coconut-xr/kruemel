@@ -9,9 +9,13 @@
 
 ## TODO
 
-- [ ] Fix clipping
+- [ ] Fix clipping in koestlich (nesting incorrect)
+- [ ] z-index in koestlich (for models, drawers, tooltips, downdowns, ...)
+- [ ] fix SVGS in koestlich (fix SVGLoader from three.js - respect size, default depth 0, default material mesh basic, ...)
+- [ ] antialiasing in koestlich for borders and borderRadius
 - [ ] proper sizing based on precision
 - [ ] better styles
+- [ ] hover, down effects
 - [ ] themes
 - [x] Link
 - [x] Button
@@ -19,7 +23,8 @@
 - [x] Toggle
 - [x] Dropdown
 - [x] Range
-- [ ] Progress
+- [x] Progress
+- [ ] Loading
 - [x] Table
 - [ ] Tooltip
 - [x] Radio
@@ -27,7 +32,7 @@
 - [x] Tabs
 - [ ] Modal
 - [ ] Drawer
-- [ ] Pagaination
-- [ ] Navbar
-- [ ] Steps
-- [ ] Icon Set
+- [x] Pagaination
+- [x] Navbar
+- [x] Steps
+- [x] Icon Set

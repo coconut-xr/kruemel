@@ -9,3 +9,4 @@ export * from "./select.js";
 export * from "./table.js";
 export * from "./link.js";
 export * from "./steps.js";
+export * from "./progress.js";
