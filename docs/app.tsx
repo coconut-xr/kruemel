@@ -11,21 +11,49 @@ import {
   Dropdown,
   DropdownContent,
   Select,
+  Table,
+  TableRow,
+  TableCell,
+  Link,
+  Steps,
+  StepNumbers,
+  StepNumber,
+  StepTitles,
+  StepTitle,
+  StepConnection,
 } from "@coconut-xr/kruemel";
+import { Plus, Play, Pause, Trash, MagnifyingGlass } from "@coconut-xr/kruemel/icons/solid";
 import { Canvas } from "@react-three/fiber";
-import { Fullscreen } from "./fullscreen";
+import { Fullscreen } from "./fullscreen.js";
 import { useState } from "react";
+import { OrbitControls } from "@react-three/drei";
+import { MOUSE } from "three";
+
+const tableData = [
+  ["Entry Name", "Entry Number", "Entry Description"],
+  ["ABC", "1", "ABC is CBA reversed"],
+  ["Koestlich", "2", "User Interfaces for Three.js"],
+  ["Coconut XR", "3", "Powered by Coconut Capital GmbH"],
+];
 
 export default function Index() {
   const [checked, setChecked] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
   const [sliderValue, setSliderValue] = useState(0.5);
   return (
-    <Canvas
-      dpr={window.devicePixelRatio}
-      camera={{ position: [0, 0, 2], fov: 90 }}
-      style={{ height: "100vh" }}
-    >
+    <Canvas dpr={window.devicePixelRatio} style={{ height: "100vh" }}>
+      <OrbitControls
+        target={[0, 0, 0]}
+        enableZoom={false}
+        enablePan={false}
+        minDistance={5}
+        maxDistance={5}
+        mouseButtons={{
+          LEFT: MOUSE.RIGHT,
+          MIDDLE: MOUSE.MIDDLE,
+          RIGHT: MOUSE.LEFT,
+        }}
+      />
       <ambientLight color={0xffffff} intensity={0.5} />
       <Fullscreen>
         <Container alignItems="flex-start" padding={0.05} flexGrow={1} flexDirection="column">
@@ -65,7 +93,6 @@ export default function Index() {
               border={0.003}
               borderColor="black"
               borderOpacity={0.5}
-              borderRadius={0.02}
               padding={0.015}
               open={checked}
             >
@@ -116,6 +143,62 @@ export default function Index() {
               }`}</Tab>
             ))}
           </Tabs>
+
+          <Text fontSize={0.2} marginTop={0.1}>
+            Table
+          </Text>
+          <Table>
+            {tableData.map((rowData, rowIndex) => (
+              <TableRow key={rowIndex}>
+                {rowData.map((cellData, columnIndex) => (
+                  <TableCell key={columnIndex}>
+                    <Text>{cellData}</Text>
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </Table>
+          <Text fontSize={0.2} marginTop={0.1}>
+            Link
+          </Text>
+          <Container flexDirection="row">
+            <Text>Find our Website </Text>
+            <Link href="https://coconut-xr.com" target="_blank">
+              here.
+            </Link>
+          </Container>
+
+          <Text fontSize={0.2} marginTop={0.1}>
+            Steps
+          </Text>
+          <Steps maxWidth={4}>
+            <StepNumbers>
+              <StepNumber>1</StepNumber>
+              <StepConnection />
+              <StepNumber>2</StepNumber>
+              <StepConnection />
+              <StepNumber>3</StepNumber>
+              <StepConnection backgroundColor="gray" />
+              <StepNumber backgroundColor="gray">4</StepNumber>
+            </StepNumbers>
+            <StepTitles>
+              <StepTitle>Login</StepTitle>
+              <StepTitle>Do Something</StepTitle>
+              <StepTitle>Logout</StepTitle>
+              <StepTitle>Shut Down</StepTitle>
+            </StepTitles>
+          </Steps>
+
+          <Text fontSize={0.2} marginTop={0.1}>
+            Icons
+          </Text>
+          <Container flexWrap="wrap" flexDirection="row" gapColumn={0.1}>
+            <Plus />
+            <Play />
+            <Pause />
+            <Trash />
+            <MagnifyingGlass />
+          </Container>
         </Container>
       </Fullscreen>
     </Canvas>

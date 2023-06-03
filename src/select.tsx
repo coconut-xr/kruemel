@@ -2,6 +2,7 @@ import { Container, ExtendedThreeEvent, Text, useBaseNodeContext } from "@coconu
 import React, { ComponentProps, ReactNode, startTransition, useMemo, useState } from "react";
 import { ColorRepresentation } from "three";
 import { Dropdown, DropdownContent } from "./dropdown.js";
+import { ChevronDown } from "./icons/outline/chevron-down.js";
 
 export function Select({
   value,
@@ -56,7 +57,13 @@ function SelectContent({
 
   return (
     <>
-      <Container backgroundColor={backgroundColor} borderRadius={0.04}>
+      <Container
+        flexDirection="row"
+        alignItems="center"
+        gapColumn={0.02}
+        backgroundColor={backgroundColor}
+      >
+        <ChevronDown marginLeft={0.07} color="white" />
         {RenderLabel(
           getId(selectedIndex),
           0,
@@ -66,12 +73,7 @@ function SelectContent({
           false,
         )}
       </Container>
-      <DropdownContent
-        backgroundColor={backgroundColor}
-        open={open}
-        flexDirection="column"
-        borderRadius={0.04}
-      >
+      <DropdownContent backgroundColor={backgroundColor} open={open} flexDirection="column">
         {options.map(({ value, label }, index) =>
           index == selectedIndex
             ? null
@@ -82,7 +84,6 @@ function SelectContent({
                 (e: ExtendedThreeEvent<MouseEvent>) => {
                   e.stopPropagation();
                   startTransition(() => {
-                    console.log("x");
                     setOpen(false);
                     onChange(value);
                   });

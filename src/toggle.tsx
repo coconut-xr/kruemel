@@ -12,21 +12,19 @@ export function Toggle({
 }) {
   return (
     <Container
-      height={0.06}
-      width={0.1}
-      padding={0.015}
+      height={0.08}
+      width={0.14}
+      padding={0.02}
       alignItems="center"
       justifyContent="space-between"
-      flexDirection="row"
-      borderRadius={0.03}
+      flexDirection={checked ? "row-reverse" : "row"}
+      borderRadius={0.04}
       backgroundColor="black"
       {...rest}
     >
-      <Container index={checked ? 0 : 1} padding={0.01}></Container>
       <Container
-        index={checked ? 1 : 0}
-        padding={0.015}
-        borderRadius={0.015}
+        padding={0.02}
+        borderRadius={0.02}
         backgroundColor={color}
         backgroundOpacity={checked ? 1 : 0.5}
       ></Container>

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@coconut-xr/kruemel": "file:..",
+    "@react-three/drei": "^9.71.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {

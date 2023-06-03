@@ -6,3 +6,6 @@ export * from "./toggle.js";
 export * from "./tabs.js";
 export * from "./radio.js";
 export * from "./select.js";
+export * from "./table.js";
+export * from "./link.js";
+export * from "./steps.js";

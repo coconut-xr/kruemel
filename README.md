@@ -13,13 +13,14 @@
 - [ ] proper sizing based on precision
 - [ ] better styles
 - [ ] themes
+- [x] Link
 - [x] Button
 - [x] Checkbox
 - [x] Toggle
 - [x] Dropdown
 - [x] Range
 - [ ] Progress
-- [ ] Table
+- [x] Table
 - [ ] Tooltip
 - [x] Radio
 - [x] Select

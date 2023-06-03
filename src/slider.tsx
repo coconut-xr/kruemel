@@ -28,24 +28,24 @@ export function Slider({
   );
   return (
     <Container
-      height={0.06}
-      width={0.4}
-      borderRadius={0.03}
+      height={0.08}
+      width={0.6}
+      borderRadius={0.04}
       onPointerMove={onPointerMove}
-      padding={0.015}
+      padding={0.02}
       backgroundColor="black"
       {...rest}
     >
       <Container
         width={`${((1 - 0.03) * clamp(value / range, 0, 1) + 0.03) * 100}%`}
         minWidth={0.03}
-        height={0.03}
-        borderRadius={0.015}
+        height={0.04}
+        borderRadius={0.02}
         backgroundOpacity={0.5}
         backgroundColor={color}
         alignItems="flex-end"
       >
-        <Container height={0.03} width={0.03} borderRadius={0.015} backgroundColor={color} />
+        <Container height={0.04} width={0.04} borderRadius={0.02} backgroundColor={color} />
       </Container>
     </Container>
   );

@@ -11,9 +11,10 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
 
-        - name: Install and Build
+        - name: Install, Generate, and Build
           run: |
             npm install
+            npm run generate:icons
             npm run build
       
         - name: Check

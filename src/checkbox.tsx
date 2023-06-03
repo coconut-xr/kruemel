@@ -12,19 +12,14 @@ export function Checkbox({
 }) {
   return (
     <Container
-      height={0.06}
-      width={0.06}
+      height={0.08}
+      width={0.08}
       alignItems="center"
       justifyContent="center"
-      borderRadius={0.01}
       backgroundColor="black"
       {...rest}
     >
-      <Container
-        padding={checked ? 0.015 : 0}
-        borderRadius={0.01}
-        backgroundColor={color}
-      ></Container>
+      <Container padding={checked ? 0.02 : 0} backgroundColor={color} />
     </Container>
   );
 }
