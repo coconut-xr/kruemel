@@ -1,6 +1,6 @@
 {
   "name": "@coconut-xr/kruemel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "SEE LICENSE IN LICENSE",
   "description": "",
   "author": "Bela Bohlender",
@@ -42,7 +42,7 @@
     "@coconut-xr/koestlich": "*"
   },
   "devDependencies": {
-    "@coconut-xr/koestlich": "^0.0.13",
+    "@coconut-xr/koestlich": "^0.0.14",
     "@react-three/fiber": "^8.12.0",
     "@types/node": "^20.2.5",
     "@types/prettier": "^2.7.3",

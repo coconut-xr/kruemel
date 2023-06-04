@@ -42,7 +42,12 @@ export default function Index() {
   const [activeTab, setActiveTab] = useState(0);
   const [sliderValue, setSliderValue] = useState(0.5);
   return (
-    <Canvas dpr={window.devicePixelRatio} style={{ height: "100vh" }}>
+    <Canvas
+      gl={{ localClippingEnabled: true }}
+      events={clippingEvents}
+      dpr={window.devicePixelRatio}
+      style={{ height: "100vh" }}
+    >
       <OrbitControls
         target={[0, 0, 0]}
         enableZoom={false}

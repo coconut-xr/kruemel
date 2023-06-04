@@ -62,16 +62,10 @@ function SelectContent({
         alignItems="center"
         gapColumn={0.02}
         backgroundColor={backgroundColor}
+        onClick={() => setOpen((open) => !open)}
       >
         <ChevronDown marginLeft={0.07} color="white" />
-        {RenderLabel(
-          getId(selectedIndex),
-          0,
-          selectedLabel,
-          () => setOpen((open) => !open),
-          color,
-          false,
-        )}
+        {RenderLabel(getId(selectedIndex), 0, selectedLabel, undefined, color, false)}
       </Container>
       <DropdownContent backgroundColor={backgroundColor} open={open} flexDirection="column">
         {options.map(({ value, label }, index) =>
@@ -101,7 +95,7 @@ function RenderLabel(
   id: string,
   index: number,
   label: string | ReactNode,
-  onClick: (e: ExtendedThreeEvent<MouseEvent>) => void,
+  onClick: ((e: ExtendedThreeEvent<MouseEvent>) => void) | undefined,
   color: ColorRepresentation,
   borderTop: boolean,
 ) {

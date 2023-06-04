@@ -9,7 +9,7 @@
 
 ## TODO
 
-- [ ] Fix clipping in koestlich (nesting incorrect)
+- [x] Fix clipping in koestlich (nesting incorrect)
 - [ ] z-index in koestlich (for models, drawers, tooltips, downdowns, ...)
 - [ ] fix SVGS in koestlich (fix SVGLoader from three.js - respect size, default depth 0, default material mesh basic, ...)
 - [ ] antialiasing in koestlich for borders and borderRadius
