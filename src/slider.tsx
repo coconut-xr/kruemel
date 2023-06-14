@@ -1,7 +1,10 @@
 import { Container, ExtendedThreeEvent } from "@coconut-xr/koestlich";
-import React, { ComponentProps, startTransition, useCallback } from "react";
-import { ColorRepresentation } from "three";
+import { ThreeEvent } from "@react-three/fiber";
+import React, { ComponentProps, startTransition, useCallback, useRef } from "react";
+import { Box3, ColorRepresentation, Mesh, Vector3 } from "three";
 import { clamp } from "three/src/math/MathUtils.js";
+
+const vectorHelper = new Vector3();
 
 export function Slider({
   color = "white",
@@ -15,23 +18,41 @@ export function Slider({
   onChange: (value: number) => void;
   color?: ColorRepresentation;
 }) {
+  const downRef = useRef(false);
+  const onPointerDown = useCallback((e: ThreeEvent<PointerEvent>) => {
+    downRef.current = true;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    e.stopPropagation();
+  }, []);
   const onPointerMove = useCallback(
-    (e: ExtendedThreeEvent<PointerEvent>) => {
-      if (e.uv != null && (e.nativeEvent.buttons === 1 || e.nativeEvent.buttons === undefined)) {
-        //e.nativeEvent.buttons === undefined for ReactNative
-        const value = e.uv.x * range;
-        startTransition(() => onChange(value));
-        e.stopPropagation();
+    (e: ThreeEvent<PointerEvent>) => {
+      if (!downRef.current || !(e.object instanceof Mesh)) {
+        return;
       }
+      if (e.object.geometry.boundingBox == null) {
+        e.object.geometry.computeBoundingBox();
+      }
+      vectorHelper.copy(e.point);
+      e.object.worldToLocal(vectorHelper);
+      const box: Box3 = e.object.geometry.boundingBox;
+      const value = clamp((vectorHelper.x - box.min.x) / box.max.x - box.min.x, 0, 1) * range;
+      startTransition(() => onChange(value));
+      e.stopPropagation();
     },
     [onChange, range],
   );
+  const onPointerUp = useCallback((e: ThreeEvent<PointerEvent>) => {
+    downRef.current = false;
+    e.stopPropagation();
+  }, []);
   return (
     <Container
       height={0.08}
       width={0.6}
       borderRadius={0.04}
+      onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
       padding={0.02}
       backgroundColor="black"
       {...rest}
