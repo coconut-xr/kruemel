@@ -41,7 +41,10 @@ export function Slider({
     },
     [onChange, range],
   );
-  const onPointerUp = useCallback((e: ThreeEvent<PointerEvent>) => {
+  const onStop = useCallback((e: ThreeEvent<PointerEvent>) => {
+    if (!downRef.current) {
+      return;
+    }
     downRef.current = false;
     e.stopPropagation();
   }, []);
@@ -52,7 +55,8 @@ export function Slider({
       borderRadius={0.04}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
+      onPointerUp={onStop}
+      onPointerLeave={onStop}
       padding={0.02}
       backgroundColor="black"
       {...rest}
